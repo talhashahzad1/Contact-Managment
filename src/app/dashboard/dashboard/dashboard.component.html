@@ -1,0 +1,80 @@
+
+<div class="container-fluid mt-3 ps-0">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="left-side">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="d-flex justify-content-between align-items-center header p-4">
+                            <div class="menu">
+                                <button mat-button class="big-btn me-3">
+                                    <mat-icon class="icon">menu</mat-icon>
+                                </button>
+                                <h4 class="mb-0">Contacts</h4>
+                            </div>
+                            <div class="arrows">
+                                <button mat-button class="big-btn left me-2">
+                                    <mat-icon>chevron_left</mat-icon>
+                                </button>
+                                <button mat-button class="big-btn right">
+                                    <mat-icon>chevron_right</mat-icon>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-lg-12">
+                        <div class="search p-4">
+                            <div class="form-group">
+                                <label>Search for a contact</label>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <input type="text" class="w-75" placeholder="Name, email or phone number" (keyup.enter)="searchContact()" [(ngModel)]="searchTerm"/>
+                                    <button mat-button class="search me-3 text-danger" *ngIf="!search" (click)="clearSearch()">
+                                        <mat-icon>close</mat-icon>
+                                    </button>
+                                    <button mat-button class="search me-3" *ngIf="search" (click)="searchContact()">
+                                        <mat-icon>search</mat-icon>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 " *ngFor="let contact of filterList">
+                        <div>
+                            <div routerLink="contact-detail/{{contact.id}}" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="d-flex justify-content-between align-items-center px-4 mt-2 list">
+                                <div class="users">
+                                    <div class="img">
+                                        <img class="w-100" src="./../../../assets/{{contact.img}}" />
+                                        <div class="status online"></div>
+                                    </div>
+                                    <div>
+                                        <h4 class="mb-0">{{contact.firstName}}</h4>
+                                        <p class="mb-0">{{contact.profession}}</p>
+                                    </div>
+                                </div>
+                                <div class="contact-btns">
+                                    <button mat-button class="small-btn me-2">
+                                        <mat-icon class="icon">question_answer</mat-icon>
+                                    </button>
+                                    <button mat-button class="small-btn me-2">
+                                        <mat-icon class="icon"> call</mat-icon>
+                                    </button>
+                                    <button mat-button class="small-btn">
+                                        <mat-icon class="icon">more_horiz</mat-icon>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
