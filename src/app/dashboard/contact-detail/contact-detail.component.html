@@ -1,0 +1,84 @@
+<div class="right-side" *ngIf="contact">
+    <div class="row mt-5">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-10">
+            <div class="d-flex">
+                <div class="user-img">
+                    <img src="../../../assets/{{contact.img}}" alt="">
+                </div>
+                <div class="user-detail">
+                    <h4>{{contact.firstName}} {{ contact.lastName}}</h4>
+                    <p>{{contact.profession}}</p>
+                    <div class="user-contact">
+                        <button mat-button class="me-2 message"><img class="me-1" src="../../../assets/images/icons/messages.svg" />Message</button>
+                        <button mat-button class="me-2 btn-flat"><img src="../../../assets/images/icons/phone.svg" /></button>
+                        <button mat-button class="me-2 btn-flat"><img src="../../../assets/images/icons/upload.svg" /></button>
+                        <button mat-button class="me-2 btn-flat"><img src="../../../assets/images/icons/setting.svg" /></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-5">
+        <div class="col-lg-2">
+            <p class="info-heading me-3">Bio</p>
+        </div>
+        <div class="col-lg-10">
+            <p class="info-detail">{{contact.bio}}</p>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-lg-2">
+            <p class="info-heading me-3">Email</p>
+        </div>
+        <div class="col-lg-10">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div *ngFor="let email of contact.email">
+                        <p class="d-block">{{email}}</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 btn-right">
+                    <button mat-button class="btn-light"><img src="" />Primary</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-4">
+        <div class="col-lg-2">
+            <p class="info-heading me-3">Meeting</p>
+        </div>
+        <div class="col-lg-10">
+            <p> <a class="text-decoration-none" href="{{contact.meeting}}">{{contact.meeting}}</a> </p>
+        </div>
+    </div>
+    
+    <div class="row mt-4">
+        <div class="col-lg-2">
+            <p class="info-heading me-3">Phone</p>
+        </div>
+        <div class="col-lg-10">
+            <div class="d-flex justify-content-between">
+                <p>{{contact.phone}}</p>
+                <button mat-button class="btn-light"><img src="" />Primary</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-4">
+        <div class="col-lg-2 d-flex align-items-center justify-content-end">
+            <p class="info-heading me-3 mb-0">Social</p>
+        </div>
+        <div class="col-lg-10">
+            <div class="d-flex align-items-center">
+                <a mat-button routerLink="" class="big-btn me-2"><img src="./../../../assets/images/icons/fb.svg" /></a>
+                <a mat-button routerLink="" class="big-btn me-2"><img src="./../../../assets/images/icons/pintrest.svg" /></a>
+                <a mat-button routerLink="" class="big-btn me-2"><img src="./../../../assets/images/icons/twitter.svg" /></a>
+                <a mat-button routerLink="" class="big-btn me-2"><img src="./../../../assets/images/icons/linkdin.svg" /></a>
+                <a mat-button routerLink="" class="big-btn me-2"><img src="./../../../assets/images/icons/google.svg" /></a>
+            </div>
+        </div>
+    </div>
+</div>
